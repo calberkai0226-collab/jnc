@@ -65,9 +65,9 @@
 
   /* ── BCG 式：左 logo 浮块 + 右汉堡浮块 ── */
   .nav-pill-left {
-    position: fixed; top: 10px; left: 44px; z-index: 1100;
+    position: fixed; top: 27px; left: 47px; z-index: 1100;
     display: flex; align-items: center; justify-content: center;
-    width: 51px; height: 51px;
+    width: 61px; height: 61px;
     background: rgba(255, 253, 250, 0.72);
     backdrop-filter: blur(16px) saturate(120%);
     -webkit-backdrop-filter: blur(16px) saturate(120%);
@@ -87,14 +87,14 @@
                 box-shadow 0.3s ease;
   }
   .nav-pill-right {
-    position: fixed; top: 10px; right: 44px; z-index: 1100;
+    position: fixed; top: 27px; right: 47px; z-index: 1100;
     display: flex; align-items: center; justify-content: center;
-    width: 57px; height: 51px;
+    width: 61px; height: 61px;
     background: rgba(255, 253, 250, 0.72);
     backdrop-filter: blur(16px) saturate(120%);
     -webkit-backdrop-filter: blur(16px) saturate(120%);
     border: none;
-    border-radius: 14px;
+    border-radius: 18px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18), 0 0 0 0.5px rgba(255,255,255,0.4);
     opacity: 0; pointer-events: none;
     transform: translateY(-8px);
@@ -127,13 +127,13 @@
     top: 16px !important;
     right: -8px !important;
     transform: none !important;
-    width: 57px !important;
-    height: 51px !important;
-    border-radius: 14px !important;
+    width: 61px !important;
+    height: 61px !important;
+    border-radius: 18px !important;
   }
   /* 三道杠 → X：第一条转45°，第二条消失，第三条转-45° */
   .nav-pill-right.menu-open .pill-menu-btn span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
     background: #2a1f3d;
   }
   .nav-pill-right.menu-open .pill-menu-btn span:nth-child(2) {
@@ -142,7 +142,7 @@
     width: 0;
   }
   .nav-pill-right.menu-open .pill-menu-btn span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+    transform: translateY(-8px) rotate(-45deg);
     background: #2a1f3d;
   }
 
@@ -151,8 +151,8 @@
     top: 16px !important;
     left: -8px !important;
     transform: none !important;
-    width: 51px !important;
-    height: 51px !important;
+    width: 61px !important;
+    height: 61px !important;
     border-radius: 14px !important;
   }
 
@@ -252,16 +252,16 @@
     width: 100%; height: 100%;
     text-decoration: none;
   }
-  .pill-logo img { width: 40px; height: auto; display: block; filter: brightness(0) opacity(0.78); }
+  .pill-logo img { width: 50px; height: auto; display: block; filter: brightness(0) opacity(0.78); }
 
   .pill-menu-btn {
-    display: flex; flex-direction: column; gap: 5px;
+    display: flex; flex-direction: column; gap: 6px;
     align-items: center; justify-content: center;
     width: 100%; height: 100%;
     cursor: pointer; background: none; border: none; padding: 0;
   }
   .pill-menu-btn span {
-    display: block; width: 24px; height: 2px;
+    display: block; width: 31px; height: 2px;
     background: #2a1f3d;
     border-radius: 2px;
     transform-origin: center;
@@ -287,7 +287,7 @@
     border-radius: 9px;
     padding: 5px 14px 5px 6px;
   }
-  .logo-full { height: 48px; width: auto; display: block; filter: brightness(0) opacity(0.82); transform: translate(10px, 1px); }
+  .logo-full { height: 40px; width: auto; display: block; filter: brightness(0) opacity(0.82); transform: translate(2px, 1px); }
   .nav-links { display: flex; gap: 36px; }
   .nav-links a {
     font-size: 14px;
@@ -303,8 +303,8 @@
   @media (max-width: 640px) {
     .nav-inner { padding: 0 20px; }
     .nav-links { display: none; }
-    .nav-pill-left  { left: 16px; top: 10px; }
-    .nav-pill-right { right: 16px; top: 10px; }
+    .nav-pill-left  { left: 16px; top: 27px; }
+    .nav-pill-right { right: 16px; top: 27px; }
   }
 
   /* Hero */
