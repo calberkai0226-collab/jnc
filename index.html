@@ -1188,7 +1188,6 @@
     const fsMenu    = document.getElementById('fullscreenMenu');
     if (!mainNav || !pillLeft || !pillRight || !fsMenu) return;
 
-    mainNav.style.transition = 'opacity 0.3s ease';
     const TRIGGER = 80;
     let ticking = false;
     let menuOpen = false;
@@ -1197,14 +1196,14 @@
       const y = window.scrollY;
       if (!menuOpen) {
         if (y > TRIGGER) {
-          mainNav.style.opacity = '0';
+          mainNav.style.visibility = 'hidden';
           mainNav.style.pointerEvents = 'none';
           mainNav.classList.remove('logo-enter-from-bottom');
           mainNav.classList.add('logo-hidden');
           pillLeft.classList.add('visible');
           pillRight.classList.add('visible');
         } else {
-          mainNav.style.opacity = '1';
+          mainNav.style.visibility = 'visible';
           mainNav.style.pointerEvents = '';
           // 如果之前是隐藏的，先瞬移到下方再滑入
           if (mainNav.classList.contains('logo-hidden')) {
