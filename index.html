@@ -54,8 +54,18 @@
     backdrop-filter: saturate(180%) blur(28px);
     -webkit-backdrop-filter: saturate(180%) blur(28px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
-    will-change: transform, opacity;
+    will-change: opacity;
+    overflow: hidden;
+  }
+  .nav.nav-collapsed {
+    pointer-events: none;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom-color: transparent;
+  }
+  .nav.nav-collapsed .nav-links {
+    opacity: 0;
   }
   .nav-inner {
     width: 100%; height: 100%;
@@ -1196,15 +1206,13 @@
       const y = window.scrollY;
       if (!menuOpen) {
         if (y > TRIGGER) {
-          mainNav.style.visibility = 'hidden';
-          mainNav.style.pointerEvents = 'none';
+          mainNav.classList.add('nav-collapsed');
           mainNav.classList.remove('logo-enter-from-bottom');
           mainNav.classList.add('logo-hidden');
           pillLeft.classList.add('visible');
           pillRight.classList.add('visible');
         } else {
-          mainNav.style.visibility = 'visible';
-          mainNav.style.pointerEvents = '';
+          mainNav.classList.remove('nav-collapsed');
           // 如果之前是隐藏的，先瞬移到下方再滑入
           if (mainNav.classList.contains('logo-hidden')) {
             mainNav.classList.remove('logo-hidden');
