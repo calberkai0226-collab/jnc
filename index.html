@@ -304,8 +304,15 @@
     .nav-inner { padding: 0 20px; }
     .nav-links { display: none; }
     .logo-full { height: 32px; transform: translate(0, 1px); }
-    .nav-pill-left  { left: 16px; top: 27px; }
-    .nav-pill-right { right: 16px; top: 27px; }
+    .nav-pill-left  { left: 16px; top: 27px; width: 61px; height: 61px; }
+    .nav-pill-right { right: 16px; top: 27px; width: 61px; height: 61px; }
+    .nav-pill-left.menu-open { width: 61px !important; height: 61px !important; }
+    .nav-pill-right.menu-open { width: 61px !important; height: 61px !important; }
+    .pill-logo img { width: 50px; }
+    .pill-menu-btn { gap: 6px; }
+    .pill-menu-btn span { width: 31px; height: 2px; }
+    .nav-pill-right.menu-open .pill-menu-btn span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .nav-pill-right.menu-open .pill-menu-btn span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
   }
 
   /* Hero */
