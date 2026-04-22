@@ -272,22 +272,33 @@
 
   /* 原 logo / nav-links（在完整导航栏里） */
   .logo {
-    display: flex; align-items: center; gap: 10px;
+    display: inline-flex; align-items: center; gap: 10px;
     font-size: 19px; font-weight: 500;
     letter-spacing: 0.02em;
     color: rgba(42, 31, 61, 0.82);
-    transform: translate(0, 0); display: inline-block;
     transition: color 0.3s;
     border-radius: 10px;
     text-decoration: none;
+    overflow: hidden;
   }
   .logo-inner {
     display: flex; align-items: center; gap: 7px;
     background: transparent;
     border-radius: 9px;
     padding: 5px 14px 5px 6px;
+    transform: translateY(0);
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .logo-full { height: 40px; width: auto; display: block; filter: brightness(0) opacity(0.82); transform: translate(0px, 1px); }
+  /* 向下滚动：logo向上滑出 */
+  .nav.logo-hidden .logo-inner {
+    transform: translateY(-110%);
+  }
+  /* 向上滚回：logo从下方滑入（先瞬移到下方，再过渡到0） */
+  .nav.logo-enter-from-bottom .logo-inner {
+    transform: translateY(110%);
+    transition: none;
+  }
+  .logo-full { height: 40px; width: auto; display: block; filter: brightness(0) opacity(0.82); }
   .nav-links { display: flex; gap: 36px; }
   .nav-links a {
     font-size: 14px;
@@ -303,7 +314,7 @@
   @media (max-width: 640px) {
     .nav-inner { padding: 0 20px; }
     .nav-links { display: none; }
-    .logo-full { height: 32px; transform: translate(0, 1px); }
+    .logo-full { height: 32px; }
     .nav-pill-left  { left: 16px; top: 27px; width: 61px; height: 61px; }
     .nav-pill-right { right: 16px; top: 27px; width: 61px; height: 61px; }
     .nav-pill-left.menu-open { width: 61px !important; height: 61px !important; }
@@ -1188,11 +1199,22 @@
         if (y > TRIGGER) {
           mainNav.style.opacity = '0';
           mainNav.style.pointerEvents = 'none';
+          mainNav.classList.remove('logo-enter-from-bottom');
+          mainNav.classList.add('logo-hidden');
           pillLeft.classList.add('visible');
           pillRight.classList.add('visible');
         } else {
           mainNav.style.opacity = '1';
           mainNav.style.pointerEvents = '';
+          // 如果之前是隐藏的，先瞬移到下方再滑入
+          if (mainNav.classList.contains('logo-hidden')) {
+            mainNav.classList.remove('logo-hidden');
+            mainNav.classList.add('logo-enter-from-bottom');
+            // 强制重排后移除，让transition生效滑到0
+            requestAnimationFrame(() => {
+              mainNav.classList.remove('logo-enter-from-bottom');
+            });
+          }
           pillLeft.classList.remove('visible');
           pillRight.classList.remove('visible');
         }
