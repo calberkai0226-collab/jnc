@@ -8,10 +8,11 @@
   /* ========== 阿里妈妈数黑体 ========== */
   @font-face {
     font-family: "AlimamaShuHeiTi";
-    font-weight: 700;
+    font-weight: 100 900;
     src: url("//at.alicdn.com/wf/webfont/kfq1sgJFWQ6g/cPCrTL8ewntCCMPMNgo40.woff2") format("woff2"),
          url("//at.alicdn.com/wf/webfont/kfq1sgJFWQ6g/fu9Q_dW8qzsGtfSSU60a3.woff") format("woff");
     font-display: swap;
+    font-style: normal;
   }
 
   :root {
@@ -32,10 +33,12 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
   body {
     font-family: "AlimamaShuHeiTi", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
     font-weight: 400;
+    font-synthesis: none;
+    -webkit-text-size-adjust: 100%;
     color: var(--text-primary);
     background: var(--bg-primary);
     line-height: 1.5;
@@ -43,7 +46,8 @@
     overflow-x: hidden;
   }
   a { color: inherit; text-decoration: none; }
-  button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; font-synthesis: none; }
+  h1, h2, h3, h4, h5, h6, p, span, a, li, div { font-synthesis: none; }
 
   /* Navigation */
   /* ── 顶部完整导航栏（页面最顶端时显示） ── */
@@ -980,7 +984,7 @@
   </div>
 
   <!-- Hero 文案 -->
-  <h1 class="hero-title">巨能场读懂你的业务，<br/>再让它全自动运转。</h1>
+  <h1 class="hero-title">读懂你的业务，<br/>再让它全自动运转。</h1>
 </section>
 
 <!-- ========== 理念板块（宽屏静止 4 张，窄屏滑动 + 进度条） ========== -->
