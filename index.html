@@ -112,8 +112,8 @@
     border: none;
     border-radius: 18px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18), 0 0 0 0.5px rgba(255,255,255,0.4);
-    opacity: 0; pointer-events: none;
-    transform: translateY(-8px);
+    opacity: 1; pointer-events: auto;
+    transform: none;
     transition: opacity 0.3s ease,
                 transform 0.5s cubic-bezier(0.76,0,0.24,1),
                 top 0.5s cubic-bezier(0.76,0,0.24,1),
@@ -929,15 +929,6 @@
         <img src="巨能场logo.png" alt="巨能场" class="logo-full" />
       </div>
     </a>
-    <div class="nav-links">
-      <a href="#services">服务</a>
-      <a href="#process">流程</a>
-      <a href="#contact">联系我们</a>
-    </div>
-    <!-- 手机端导航栏内汉堡按钮 -->
-    <button class="nav-mobile-menu" id="navMobileMenu" aria-label="菜单" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </button>
   </div>
 </nav>
 
@@ -1255,7 +1246,6 @@
           mainNav.classList.remove('logo-enter-from-bottom');
           mainNav.classList.add('logo-hidden');
           pillLeft.classList.add('visible');
-          pillRight.classList.add('visible');
         } else {
           mainNav.classList.remove('nav-collapsed');
           // 如果之前是隐藏的，先瞬移到下方再滑入
@@ -1268,7 +1258,6 @@
             });
           }
           pillLeft.classList.remove('visible');
-          pillRight.classList.remove('visible');
         }
       }
       ticking = false;
@@ -1297,14 +1286,13 @@
         // 隐藏主导航栏
         mainNav.classList.add('nav-collapsed');
         mainNav.classList.add('logo-hidden');
-        // 确保浮块可见（即使在页面顶部触发）
+        // 确保左浮块可见
         pillLeft.classList.add('visible');
-        pillRight.classList.add('visible');
         // 浮块移到角落位置 + X 图标
         pillLeft.classList.add('menu-open');
         pillRight.classList.add('menu-open');
       } else {
-        // 关闭菜单：先让内容淡出，再滑走面板
+        // 关闭菜单
         fsMenu.classList.remove('open');
         document.body.style.overflow = '';
         // 浮块恢复正常位置
