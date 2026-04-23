@@ -53,11 +53,10 @@
   /* ── 顶部完整导航栏（页面最顶端时显示） ── */
   .nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    height: 64px;
+    height: 80px;
     background: transparent;
     border-bottom: none;
     overflow: hidden;
-    /* 强制固定，防止iOS弹性滚动推开 */
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
     backface-visibility: hidden;
@@ -76,51 +75,51 @@
   .nav-inner {
     width: 100%; height: 100%;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 0 48px;
+    padding: 0 20px;
   }
 
-  /* ── BCG 式：左 logo 浮块 + 右汉堡浮块 ── */
+  /* ── Operator 式：左 logo 浮块 + 右汉堡浮块，完全对齐 ── */
   .nav-pill-left {
-    position: fixed; top: 27px; left: 42px; z-index: 1100;
+    position: fixed; top: 20px; left: 20px; z-index: 1100;
     display: flex; align-items: center; justify-content: center;
-    width: 82px; height: 82px;
-    background: rgba(255, 253, 250, 0.72);
+    width: 56px; height: 56px;
+    background: rgba(255, 253, 250, 0.82);
     backdrop-filter: blur(16px) saturate(120%);
     -webkit-backdrop-filter: blur(16px) saturate(120%);
     border: none;
-    border-radius: 50%;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18), 0 0 0 0.5px rgba(255,255,255,0.4);
+    border-radius: 16px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
     opacity: 0; pointer-events: none;
-    transform: translateY(-8px);
-    transition: opacity 0.3s ease,
-                transform 0.45s cubic-bezier(0.76,0,0.24,1),
-                top 0.45s cubic-bezier(0.76,0,0.24,1),
-                left 0.45s cubic-bezier(0.76,0,0.24,1),
-                width 0.45s cubic-bezier(0.76,0,0.24,1),
-                height 0.45s cubic-bezier(0.76,0,0.24,1),
-                border-radius 0.45s cubic-bezier(0.76,0,0.24,1),
+    transform: translateY(-6px);
+    transition: opacity 0.35s ease,
+                transform 0.4s cubic-bezier(0.76,0,0.24,1),
+                top 0.4s cubic-bezier(0.76,0,0.24,1),
+                left 0.4s cubic-bezier(0.76,0,0.24,1),
+                width 0.4s cubic-bezier(0.76,0,0.24,1),
+                height 0.4s cubic-bezier(0.76,0,0.24,1),
+                border-radius 0.4s cubic-bezier(0.76,0,0.24,1),
                 background 0.3s ease,
                 box-shadow 0.3s ease;
   }
   .nav-pill-right {
-    position: fixed; top: 27px; right: 42px; z-index: 1100;
+    position: fixed; top: 20px; right: 20px; z-index: 1100;
     display: flex; align-items: center; justify-content: center;
-    width: 82px; height: 82px;
-    background: rgba(255, 253, 250, 0.72);
+    width: 56px; height: 56px;
+    background: rgba(255, 253, 250, 0.82);
     backdrop-filter: blur(16px) saturate(120%);
     -webkit-backdrop-filter: blur(16px) saturate(120%);
     border: none;
-    border-radius: 18px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18), 0 0 0 0.5px rgba(255,255,255,0.4);
+    border-radius: 16px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
     opacity: 1; pointer-events: auto;
     transform: none;
-    transition: opacity 0.3s ease,
-                transform 0.5s cubic-bezier(0.76,0,0.24,1),
-                top 0.5s cubic-bezier(0.76,0,0.24,1),
-                right 0.5s cubic-bezier(0.76,0,0.24,1),
-                width 0.5s cubic-bezier(0.76,0,0.24,1),
-                height 0.5s cubic-bezier(0.76,0,0.24,1),
-                border-radius 0.5s cubic-bezier(0.76,0,0.24,1),
+    transition: opacity 0.35s ease,
+                transform 0.4s cubic-bezier(0.76,0,0.24,1),
+                top 0.4s cubic-bezier(0.76,0,0.24,1),
+                right 0.4s cubic-bezier(0.76,0,0.24,1),
+                width 0.4s cubic-bezier(0.76,0,0.24,1),
+                height 0.4s cubic-bezier(0.76,0,0.24,1),
+                border-radius 0.4s cubic-bezier(0.76,0,0.24,1),
                 background 0.3s ease,
                 box-shadow 0.3s ease;
   }
@@ -129,10 +128,10 @@
     opacity: 1; pointer-events: auto; transform: none;
   }
 
-  /* 右浮块 hover：背景变紫 */
+  /* 右浮块 hover */
   .nav-pill-right:hover {
-    background: rgba(0, 0, 0, 0.06);
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1), 0 0 0 0.5px rgba(0, 0, 0, 0.06);
+    background: rgba(0, 0, 0, 0.04);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
   }
   .nav-pill-right:hover .pill-menu-btn span {
     background: #000;
@@ -148,12 +147,12 @@
 
   /* 菜单打开时：右浮块融入菜单背景，去掉浮块形状 */
   .nav-pill-right.menu-open {
-    top: 18px !important;
-    right: 18px !important;
+    top: 20px !important;
+    right: 20px !important;
     transform: none !important;
-    width: 82px !important;
-    height: 82px !important;
-    border-radius: 18px !important;
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 16px !important;
     background: transparent !important;
     box-shadow: none !important;
     backdrop-filter: none !important;
@@ -161,7 +160,7 @@
   }
   /* 三道杠 → X：第一条转45°，第二条消失，第三条转-45° */
   .nav-pill-right.menu-open .pill-menu-btn span:nth-child(1) {
-    transform: translateY(10.5px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
     background: #2a1f3d;
   }
   .nav-pill-right.menu-open .pill-menu-btn span:nth-child(2) {
@@ -170,18 +169,18 @@
     width: 0;
   }
   .nav-pill-right.menu-open .pill-menu-btn span:nth-child(3) {
-    transform: translateY(-10.5px) rotate(-45deg);
+    transform: translateY(-8px) rotate(-45deg);
     background: #2a1f3d;
   }
 
   /* 菜单打开时：左浮块融入菜单背景，去掉浮块形状 */
   .nav-pill-left.menu-open {
-    top: 18px !important;
-    left: 18px !important;
+    top: 20px !important;
+    left: 20px !important;
     transform: none !important;
-    width: 82px !important;
-    height: 82px !important;
-    border-radius: 14px !important;
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 16px !important;
     background: transparent !important;
     box-shadow: none !important;
     backdrop-filter: none !important;
@@ -257,7 +256,7 @@
   }
   .fsm-nav {
     flex: 1; display: flex; flex-direction: column; justify-content: center;
-    padding: 120px 48px 0;
+    padding: 96px 48px 0;
   }
   .fsm-link:first-child { border-top: 1px solid rgba(0,0,0,0.07); }
   .fsm-link:hover { color: var(--text-primary); }
@@ -283,16 +282,16 @@
     width: 100%; height: 100%;
     text-decoration: none;
   }
-  .pill-logo img { width: 60px; height: auto; display: block; filter: brightness(0) opacity(0.78); }
+  .pill-logo img { width: 32px; height: auto; display: block; filter: brightness(0) opacity(0.78); }
 
   .pill-menu-btn {
-    display: flex; flex-direction: column; gap: 8px;
+    display: flex; flex-direction: column; gap: 6px;
     align-items: center; justify-content: center;
     width: 100%; height: 100%;
     cursor: pointer; background: none; border: none; padding: 0;
   }
   .pill-menu-btn span {
-    display: block; width: 38px; height: 2.5px;
+    display: block; width: 24px; height: 2px;
     background: #2a1f3d;
     border-radius: 2px;
     transform-origin: center;
@@ -342,47 +341,24 @@
   .nav.scrolled .nav-links a:hover { color: var(--text-primary); }
   .nav.scrolled .logo { color: var(--text-primary); }
 
-  /* 手机端导航栏内汉堡按钮（桌面端隐藏） */
-  .nav-mobile-menu {
-    display: none;
-    flex-direction: column; gap: 6px;
-    align-items: center; justify-content: center;
-    width: 44px; height: 44px;
-    cursor: pointer; background: none; border: none; padding: 0;
-  }
-  .nav-mobile-menu span {
-    display: block; width: 26px; height: 2px;
-    background: rgba(255, 252, 248, 0.88);
-    border-radius: 2px;
-    transform-origin: center;
-    transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1),
-                opacity 0.25s ease,
-                background 0.3s ease;
-  }
-  .nav.scrolled .nav-mobile-menu span {
-    background: var(--text-primary);
-  }
-  /* 菜单打开时导航栏隐藏，所以这里不需要X状态 */
-
   @media (max-width: 640px) {
-    .nav-inner { padding: 0 20px; }
+    .nav-inner { padding: 0 14px; }
     .nav-links { display: none; }
-    .nav-mobile-menu { display: flex; }
     .logo-full { height: 32px; }
     .logo-inner { margin-left: -3px; }
-    .nav-pill-left  { left: 16px; top: 27px; width: 61px; height: 61px; }
-    .nav-pill-right { right: 16px; top: 27px; width: 61px; height: 61px; }
-    .nav-pill-left.menu-open { width: 61px !important; height: 61px !important; left: 12px !important; top: 14px !important; }
-    .nav-pill-right.menu-open { width: 61px !important; height: 61px !important; right: 12px !important; top: 14px !important; }
-    .pill-logo img { width: 50px; }
-    .pill-menu-btn { gap: 6px; }
-    .pill-menu-btn span { width: 31px; height: 2px; }
-    .nav-pill-right.menu-open .pill-menu-btn span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .nav-pill-right.menu-open .pill-menu-btn span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    .nav-pill-left  { left: 14px; top: 14px; width: 48px; height: 48px; border-radius: 14px; }
+    .nav-pill-right { right: 14px; top: 14px; width: 48px; height: 48px; border-radius: 14px; }
+    .nav-pill-left.menu-open { width: 48px !important; height: 48px !important; left: 14px !important; top: 14px !important; border-radius: 14px !important; }
+    .nav-pill-right.menu-open { width: 48px !important; height: 48px !important; right: 14px !important; top: 14px !important; border-radius: 14px !important; }
+    .pill-logo img { width: 26px; }
+    .pill-menu-btn { gap: 5px; }
+    .pill-menu-btn span { width: 20px; height: 1.5px; }
+    .nav-pill-right.menu-open .pill-menu-btn span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-pill-right.menu-open .pill-menu-btn span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
     /* 移动端菜单适配 */
-    .fsm-nav { padding: 100px 28px 0; }
+    .fsm-nav { padding: 80px 24px 0; }
     .fsm-link { font-size: clamp(22px, 6vw, 28px); padding: 20px 0; }
-    .fsm-footer { padding: 24px 28px; }
+    .fsm-footer { padding: 24px 24px; }
   }
 
   /* Hero */
