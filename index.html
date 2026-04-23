@@ -53,10 +53,9 @@
   /* ── 顶部完整导航栏（页面最顶端时显示） ── */
   .nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    height: 80px;
+    height: 96px;
     background: transparent;
     border-bottom: none;
-    overflow: hidden;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
     backface-visibility: hidden;
@@ -74,8 +73,8 @@
   }
   .nav-inner {
     width: 100%; height: 100%;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 20px;
+    display: flex; align-items: flex-start; justify-content: space-between;
+    padding: 20px 20px 0;
   }
 
   /* ── Operator 式：左 logo 浮块 + 右汉堡浮块，完全对齐 ── */
@@ -90,7 +89,7 @@
     border-radius: 16px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
     opacity: 0; pointer-events: none;
-    transform: translateY(-6px);
+    transform: none;
     transition: opacity 0.35s ease,
                 transform 0.4s cubic-bezier(0.76,0,0.24,1),
                 top 0.4s cubic-bezier(0.76,0,0.24,1),
@@ -282,7 +281,7 @@
     width: 100%; height: 100%;
     text-decoration: none;
   }
-  .pill-logo img { width: 32px; height: auto; display: block; filter: brightness(0) opacity(0.78); }
+  .pill-logo img { width: 38px; height: auto; display: block; filter: brightness(0) opacity(0.78); }
 
   .pill-menu-btn {
     display: flex; flex-direction: column; gap: 6px;
@@ -309,27 +308,31 @@
     transition: color 0.3s;
     border-radius: 10px;
     text-decoration: none;
+    height: 56px;
     overflow: hidden;
   }
   .logo-inner {
     display: flex; align-items: center; gap: 7px;
     background: transparent;
     border-radius: 9px;
-    padding: 5px 14px 5px 6px;
+    padding: 0 14px 0 6px;
+    opacity: 1;
     transform: translateY(0);
-    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  /* 向下滚动：logo向上滑出 */
+  /* 向下滚动：logo淡出并轻微上移 */
   .nav.logo-hidden .logo-inner {
-    transform: translateY(-110%);
+    opacity: 0;
+    transform: translateY(-8px);
   }
-  /* 向上滚回：logo从下方滑入（先瞬移到下方，再过渡到0） */
+  /* 向上滚回：logo淡入并轻微下移回位 */
   .nav.logo-enter-from-bottom .logo-inner {
-    transform: translateY(110%);
+    opacity: 0;
+    transform: translateY(8px);
     transition: none;
   }
-  .logo-full { height: 40px; width: auto; display: block; filter: brightness(0) opacity(0.82); }
-  .nav-links { display: flex; gap: 36px; }
+  .logo-full { height: 32px; width: auto; display: block; filter: brightness(0) opacity(0.82); }
+  .nav-links { display: flex; gap: 36px; align-items: center; height: 56px; }
   .nav-links a {
     font-size: 14px;
     color: rgba(255, 252, 248, 0.88);
@@ -342,15 +345,16 @@
   .nav.scrolled .logo { color: var(--text-primary); }
 
   @media (max-width: 640px) {
-    .nav-inner { padding: 0 14px; }
+    .nav-inner { padding: 14px 14px 0; }
     .nav-links { display: none; }
-    .logo-full { height: 32px; }
+    .logo-full { height: 26px; }
+    .logo { height: 48px; }
     .logo-inner { margin-left: -3px; }
     .nav-pill-left  { left: 14px; top: 14px; width: 48px; height: 48px; border-radius: 14px; }
     .nav-pill-right { right: 14px; top: 14px; width: 48px; height: 48px; border-radius: 14px; }
     .nav-pill-left.menu-open { width: 48px !important; height: 48px !important; left: 14px !important; top: 14px !important; border-radius: 14px !important; }
     .nav-pill-right.menu-open { width: 48px !important; height: 48px !important; right: 14px !important; top: 14px !important; border-radius: 14px !important; }
-    .pill-logo img { width: 26px; }
+    .pill-logo img { width: 30px; }
     .pill-menu-btn { gap: 5px; }
     .pill-menu-btn span { width: 20px; height: 1.5px; }
     .nav-pill-right.menu-open .pill-menu-btn span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
