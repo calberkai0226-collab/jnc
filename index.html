@@ -92,8 +92,8 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     opacity: 0; pointer-events: none;
     transform: translateY(-8px);
-    transition: opacity 0.3s ease,
-                transform 0.45s cubic-bezier(0.76,0,0.24,1),
+    transition: opacity 0.15s ease,
+                transform 0.25s cubic-bezier(0.76,0,0.24,1),
                 top 0.45s cubic-bezier(0.76,0,0.24,1),
                 left 0.45s cubic-bezier(0.76,0,0.24,1),
                 width 0.45s cubic-bezier(0.76,0,0.24,1),
@@ -319,7 +319,7 @@
     border-radius: 9px;
     padding: 5px 14px 5px 6px;
     transform: translateY(8px);
-    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
   /* 向下滚动：logo向上滑出 */
   .nav.logo-hidden .logo-inner {
@@ -1238,7 +1238,6 @@
     if (!mainNav || !pillLeft || !pillRight || !fsMenu) return;
 
     const TRIGGER = 80;
-    let ticking = false;
     let menuOpen = false;
 
     function updateNav() {
@@ -1255,15 +1254,18 @@
           if (mainNav.classList.contains('logo-hidden')) {
             mainNav.classList.remove('logo-hidden');
             mainNav.classList.add('logo-enter-from-bottom');
-            // 强制重排后移除，让transition生效滑到0
+            // 强制重排，确保浏览器先渲染到下方位置
+            void mainNav.offsetHeight;
+            // 双 rAF 保证 Safari 也能正确触发过渡
             requestAnimationFrame(() => {
-              mainNav.classList.remove('logo-enter-from-bottom');
+              requestAnimationFrame(() => {
+                mainNav.classList.remove('logo-enter-from-bottom');
+              });
             });
           }
           pillLeft.classList.remove('visible');
         }
       }
-      ticking = false;
     }
 
     // 滚动出 hero 区域后，导航栏文字切换为深色
@@ -1323,9 +1325,7 @@
       }
     };
 
-    window.addEventListener('scroll', () => {
-      if (!ticking) { requestAnimationFrame(updateNav); ticking = true; }
-    }, { passive: true });
+    window.addEventListener('scroll', updateNav, { passive: true });
 
     updateNav();
   })();
