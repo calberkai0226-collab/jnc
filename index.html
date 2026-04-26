@@ -872,14 +872,36 @@
 
   /* Footer */
   footer {
-    padding: 56px 32px;
-    border-top: 3px solid transparent;
-    border-top: 3px solid var(--accent-purple); border-image: none;
+    padding: 48px 48px 42px;
+    border-top: none;
     font-size: 13px; color: var(--text-secondary);
-    text-align: center; line-height: 1.8;
+    text-align: left; line-height: 1.8;
     background: var(--bg-secondary);
   }
-  footer .footer-inner { max-width: 1080px; margin: 0 auto; }
+  footer .footer-inner { max-width: 1080px; }
+  .footer-copyright { font-size: 13px; color: var(--text-secondary); }
+  .footer-email {
+    display: inline-block; font-size: 13px; color: var(--text-secondary);
+    margin-top: 4px; text-decoration: none; border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .footer-email:hover { border-bottom-color: var(--text-tertiary); }
+  .footer-made-with { font-size: 13px; color: var(--text-tertiary); margin-top: 6px; }
+  .footer-made-with .heart { color: #c0392b; }
+
+  /* Toast */
+  .copy-toast {
+    position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%) translateY(20px);
+    background: var(--text-primary); color: var(--bg-primary);
+    font-size: 14px; padding: 12px 24px; border-radius: 100px;
+    opacity: 0; pointer-events: none; z-index: 9999;
+    transition: opacity 0.3s, transform 0.3s;
+    white-space: nowrap;
+  }
+  .copy-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  @media (max-width: 640px) {
+    footer { padding: 36px 28px 30px; }
+  }
 
   /* Scroll reveal */
   .reveal {
@@ -944,22 +966,13 @@
 <div class="fullscreen-menu" id="fullscreenMenu">
   <div class="fsm-body" id="fsmBody">
     <nav class="fsm-nav">
-      <a href="#services" class="fsm-link" onclick="toggleMenu()">
-        <span>服务</span><span class="fsm-link-arrow">›</span>
-      </a>
-      <a href="#process" class="fsm-link" onclick="toggleMenu()">
-        <span>流程</span><span class="fsm-link-arrow">›</span>
-      </a>
-      <a href="#contact" class="fsm-link" onclick="toggleMenu()">
+      <a href="mailto:chris@megworks.ai" class="fsm-link" onclick="smartMailto(event)">
         <span>联系我们</span><span class="fsm-link-arrow">›</span>
       </a>
-      <a href="#contact" class="fsm-link" onclick="toggleMenu()">
+      <a href="join.html" class="fsm-link" onclick="toggleMenu()">
         <span>加入我们</span><span class="fsm-link-arrow">›</span>
       </a>
     </nav>
-    <div class="fsm-footer">
-      <a href="#contact" class="fsm-cta" onclick="toggleMenu()">预约免费咨询 →</a>
-    </div>
   </div>
 </div>
 
@@ -1047,149 +1060,77 @@
   </div>
 </section>
 
-<!-- Value Prop -->
-<section class="value-prop reveal">
-  <div class="section-inner">
-    <div class="section-eyebrow">我们的使命</div>
-    <h2 class="section-title">把 AI 变得简单。<br/>把业务变得更快。</h2>
-    <p class="section-subtitle" style="margin-top: 24px;">
-      不懂代码、没有技术团队，也可以拥有 AI 驱动的自动化。<br/>
-      我们负责技术，你专注业务。
-    </p>
-  </div>
-</section>
 
-<!-- Services -->
-<section id="services">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <div class="section-eyebrow">我们的服务</div>
-      <h2 class="section-title">四种能力，<br/>覆盖企业核心场景。</h2>
-    </div>
-    <div class="services-grid reveal">
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
-        <div class="service-title">智能客服系统</div>
-        <div class="service-desc">7×24 小时自动应答，准确识别客户意图，大幅降低人力成本。</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-        </div>
-        <div class="service-title">流程自动化</div>
-        <div class="service-desc">从数据录入到工单流转，把重复性工作交给 AI，让员工做更有价值的事。</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 12l4-4 4 4 5-5"/></svg>
-        </div>
-        <div class="service-title">数据智能分析</div>
-        <div class="service-desc">用自然语言提问，即刻获得业务洞察。再也不用等报表。</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        </div>
-        <div class="service-title">定制 AI 解决方案</div>
-        <div class="service-desc">针对你的业务场景量身定制，从咨询到落地，全程陪跑。</div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- Process -->
-<section id="process" class="process">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <div class="section-eyebrow">合作流程</div>
-      <h2 class="section-title">四步，<br/>从沟通到落地。</h2>
-    </div>
-    <div class="process-steps reveal">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-title">需求沟通</div>
-        <div class="step-desc">免费咨询，了解你的业务痛点和目标。</div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-title">方案设计</div>
-        <div class="step-desc">量身定制技术方案，透明报价，没有隐藏费用。</div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-title">开发部署</div>
-        <div class="step-desc">敏捷开发，分阶段交付，过程中持续对齐。</div>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-title">持续优化</div>
-        <div class="step-desc">上线后长期支持，根据数据反馈迭代改进。</div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- Contact -->
-<section id="contact" class="contact">
-  <div class="section-inner">
-    <div class="section-header reveal" style="margin-bottom: 0;">
-      <div class="section-eyebrow">联系我们</div>
-      <h2 class="section-title">告诉我们你的需求。</h2>
-      <p class="section-subtitle">填写表单，我们会在 1 个工作日内与你联系。</p>
-    </div>
-    <form class="contact-form reveal" onsubmit="handleSubmit(event)">
-      <div class="form-row">
-        <div class="form-field">
-          <label>姓名</label>
-          <input type="text" name="name" placeholder="你的名字" required />
-        </div>
-        <div class="form-field">
-          <label>公司</label>
-          <input type="text" name="company" placeholder="公司名称" required />
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-field">
-          <label>邮箱</label>
-          <input type="email" name="email" placeholder="you@company.com" required />
-        </div>
-        <div class="form-field">
-          <label>电话</label>
-          <input type="tel" name="phone" placeholder="可选" />
-        </div>
-      </div>
-      <div class="form-field">
-        <label for="service-select">你希望了解的服务</label>
-        <select id="service-select" name="service">
-          <option>智能客服系统</option>
-          <option>流程自动化</option>
-          <option>数据智能分析</option>
-          <option>定制 AI 解决方案</option>
-          <option>其他 / 不确定</option>
-        </select>
-      </div>
-      <div class="form-field">
-        <label>简要描述你的需求</label>
-        <textarea name="message" placeholder="比如：我们有 50 人的客服团队，想降低人力成本……"></textarea>
-      </div>
-      <button type="submit" class="form-submit">提交</button>
-    </form>
-  </div>
-</section>
+
+
+
+<!-- Toast -->
+<div class="copy-toast" id="copyToast">邮箱已复制：chris@megworks.ai</div>
 
 <!-- Footer -->
 <footer>
   <div class="footer-inner">
-    <div>Copyright © 2026 巨能场. All rights reserved.</div>
-    <div style="margin-top: 8px;">邮箱：contact@example.com · 电话：+86 xxx-xxxx-xxxx</div>
+    <div class="footer-copyright">©2026 巨能场</div>
+    <div class="footer-made-with">Built with <span class="heart">♥️</span> in Shenzhen</div>
   </div>
 </footer>
 
 
 <script>
 
+
+  // ========== 智能邮箱：先尝试 mailto，打不开就复制 ==========
+  function smartMailto(e) {
+    e.preventDefault();
+    var email = 'chris@megworks.ai';
+    var hasFocus = true;
+
+    // 监听页面是否失去焦点（说明 mailto 成功跳走了）
+    function onBlur() { hasFocus = false; }
+    window.addEventListener('blur', onBlur);
+
+    // 尝试打开 mailto
+    window.location.href = 'mailto:' + email;
+
+    // 300ms 后检测：如果页面还在前台，说明 mailto 没打开，改为复制
+    setTimeout(function () {
+      window.removeEventListener('blur', onBlur);
+      if (hasFocus) {
+        // mailto 没生效，复制到剪贴板
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(email).then(function () {
+            showToast();
+          }).catch(function () {
+            fallbackCopy(email);
+          });
+        } else {
+          fallbackCopy(email);
+        }
+      }
+      // 如果在菜单里点的，关闭菜单
+      if (typeof toggleMenu === 'function' && document.getElementById('fullscreenMenu').classList.contains('open')) {
+        toggleMenu();
+      }
+    }, 500);
+  }
+
+  function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.cssText = 'position:fixed;opacity:0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); showToast(); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  function showToast() {
+    var toast = document.getElementById('copyToast');
+    toast.classList.add('show');
+    setTimeout(function () { toast.classList.remove('show'); }, 2000);
+  }
 
   // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
@@ -1208,10 +1149,7 @@
     });
   });
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    alert('演示版本 — 正式版会把信息发到你的邮箱');
-  }
+
 
   // ========== BCG 式双浮块 + 全屏菜单 ==========
   (function () {
