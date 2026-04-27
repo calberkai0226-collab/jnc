@@ -6,16 +6,6 @@
 <meta name="description" content="巨能场 - 用 AI 驱动自动化，让业务全自动运转。不需要代码，也能拥有企业级 AI 解决方案。智能客服、流程自动化、数据分析一站搞定。" />
 <title>巨能场 — 读懂你的业务，再让它全自动运转</title>
 <style>
-  /* ========== 阿里妈妈数黑体 ========== */
-  @font-face {
-    font-family: "AlimamaShuHeiTi";
-    font-weight: 100 900;
-    src: url("./fonts/font.woff2") format("woff2"),
-         url("./fonts/font.woff") format("woff");
-    font-display: swap;
-    font-style: normal;
-    font-stretch: 100%;
-  }
 
   :root {
     --bg-primary: #f5f3ee;
@@ -37,7 +27,7 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
   body {
-    font-family: "AlimamaShuHeiTi", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: inherit;
     font-weight: 400;
     font-synthesis: none;
     -webkit-text-size-adjust: 100%;
@@ -107,7 +97,7 @@
 .nav-pill-right {
     position: fixed; top: 34px; right: 67px; z-index: 1100;
     display: flex; align-items: center; justify-content: center;
-    width: 64px; height: 56px;
+    width: 56px; height: 56px;
     background: rgba(255, 253, 250, 0.95);
     border: none;
     border-radius: 16px;
@@ -149,7 +139,7 @@
     top: 18px !important;
     right: 24px !important;
     transform: none !important;
-    width: 64px !important;
+    width: 56px !important;
     height: 56px !important;
     border-radius: 16px !important;
     background: transparent !important;
@@ -170,12 +160,12 @@
   .nav-pill-right.menu-open .pill-menu-btn span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
     background: #2a1f3d;
-    width: 34px;
+    width: 28px;
   }
   /* X 状态：所有 span 居中对齐 */
   .nav-pill-right.menu-open .pill-menu-btn {
     align-items: center;
-    padding-right: 0;
+    padding-left: 0;
   }
 
   /* 菜单打开时：左浮块融入菜单背景，去掉浮块形状 */
@@ -238,7 +228,7 @@
   /* 每个链接的 stagger 延迟 */
   .fsm-link {
     display: flex; align-items: center; justify-content: space-between;
-    font-family: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    font-family: inherit;
     font-size: clamp(24px, 3.5vw, 36px); font-weight: 400;
     color: #888884;
     text-decoration: none;
@@ -292,12 +282,12 @@
 
   .pill-menu-btn {
     display: flex; flex-direction: column; gap: 6px;
-    align-items: flex-end; justify-content: center;
+    align-items: flex-start; justify-content: center;
     width: 100%; height: 100%;
-    cursor: pointer; background: none; border: none; padding: 0 14px 0 0;
+    cursor: pointer; background: none; border: none; padding: 0 0 0 15px;
   }
   .pill-menu-btn span {
-    display: block; width: 34px; height: 2px;
+    display: block; width: 28px; height: 2px;
     background: #2a1f3d;
     border-radius: 2px;
     transform-origin: center;
@@ -306,7 +296,7 @@
                 width 0.3s ease;
   }
   .pill-menu-btn span:nth-child(3) {
-    width: 23px;
+    width: 19px;
   }
 
   /* 原 logo / nav-links（在完整导航栏里） */
@@ -377,23 +367,23 @@
   /* ≤1200px：左右 32px，上 36px */
   @media (max-width: 1200px) {
     .nav-pill-left { left: 32px; top: 36px; width: 138px; height: 52px; border-radius: 14px; }
-    .nav-pill-right { right: 32px; top: 36px; width: 60px; height: 52px; border-radius: 14px; }
+    .nav-pill-right { right: 32px; top: 36px; width: 52px; height: 52px; border-radius: 14px; }
     .nav-pill-left.menu-open { left: 16px !important; top: 16px !important; width: 138px !important; height: 52px !important; border-radius: 14px !important; }
-    .nav-pill-right.menu-open { right: 16px !important; top: 16px !important; width: 60px !important; height: 52px !important; border-radius: 14px !important; }
+    .nav-pill-right.menu-open { right: 16px !important; top: 16px !important; width: 52px !important; height: 52px !important; border-radius: 14px !important; }
     .pill-logo img { height: 30px; margin-left: 24px; }
-    .pill-menu-btn span { width: 32px; }
-    .pill-menu-btn span:nth-child(3) { width: 21px; }
+    .pill-menu-btn span { width: 26px; }
+    .pill-menu-btn span:nth-child(3) { width: 17px; }
   }
 
   /* ≤900px：左右 29px，上 12px */
   @media (max-width: 900px) {
     .nav-pill-left { left: 29px; top: 12px; width: 125px; height: 48px; border-radius: 13px; }
-    .nav-pill-right { right: 29px; top: 12px; width: 56px; height: 48px; border-radius: 13px; }
+    .nav-pill-right { right: 29px; top: 12px; width: 48px; height: 48px; border-radius: 13px; }
     .nav-pill-left.menu-open { left: 12px !important; top: 8px !important; width: 125px !important; height: 48px !important; border-radius: 13px !important; }
-    .nav-pill-right.menu-open { right: 12px !important; top: 8px !important; width: 56px !important; height: 48px !important; border-radius: 13px !important; }
+    .nav-pill-right.menu-open { right: 12px !important; top: 8px !important; width: 48px !important; height: 48px !important; border-radius: 13px !important; }
     .pill-logo img { height: 28px; margin-left: 22px; }
-    .pill-menu-btn span { width: 30px; }
-    .pill-menu-btn span:nth-child(3) { width: 20px; }
+    .pill-menu-btn span { width: 24px; }
+    .pill-menu-btn span:nth-child(3) { width: 16px; }
     .fsm-nav { padding: 100px 36px 0; }
   }
 
@@ -406,21 +396,21 @@
     .logo-inner { margin-left: -3px; transform: translateY(6px); }
     .nav { height: 74px; }
     .nav-pill-left  { left: 16px; top: 16px; width: 118px; height: 44px; border-radius: 12px; padding: 0; }
-    .nav-pill-right { right: 16px; top: 16px; width: 50px; height: 44px; border-radius: 12px; }
+    .nav-pill-right { right: 16px; top: 16px; width: 44px; height: 44px; border-radius: 12px; }
     .nav-pill-left.menu-open { width: 118px !important; height: 44px !important; left: 8px !important; top: 8px !important; }
-    .nav-pill-right.menu-open { width: 50px !important; height: 44px !important; right: 8px !important; top: 8px !important; }
+    .nav-pill-right.menu-open { width: 44px !important; height: 44px !important; right: 8px !important; top: 8px !important; }
     .pill-logo img { height: 26px; margin-left: 17px; padding-left: 0; }
-    .pill-menu-btn { gap: 5px; padding-right: 11px; }
-    .pill-menu-btn span { width: 27px; height: 2px; }
-    .pill-menu-btn span:nth-child(3) { width: 18px; }
-    .nav-pill-right.menu-open .pill-menu-btn { align-items: center; padding-right: 0; }
+    .pill-menu-btn { gap: 5px; padding-left: 12px; }
+    .pill-menu-btn span { width: 22px; height: 2px; }
+    .pill-menu-btn span:nth-child(3) { width: 15px; }
+    .nav-pill-right.menu-open .pill-menu-btn { align-items: center; padding-left: 0; }
     .nav-pill-right.menu-open .pill-menu-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-pill-right.menu-open .pill-menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); width: 27px; }
+    .nav-pill-right.menu-open .pill-menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); width: 22px; }
     /* 移动端菜单适配 - BCG 风格 */
     .fsm-nav { padding: 90px 28px 0; justify-content: flex-start; }
     .fsm-link {
       font-size: 24px; font-weight: 400; padding: 22px 0; color: var(--text-secondary);
-      font-family: "AlimamaShuHeiTi", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-family: inherit;
     }
     .fsm-link-arrow { display: none; }
     .fsm-footer { padding: 24px 28px; }

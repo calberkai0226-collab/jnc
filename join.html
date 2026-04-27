@@ -6,15 +6,6 @@
 <meta name="description" content="加入巨能场 — 与智能体深度协同，重新定义创业与组织形态。" />
 <title>加入我们 — 巨能场</title>
 <style>
-  @font-face {
-    font-family: "AlimamaShuHeiTi";
-    font-weight: 100 900;
-    src: url("./fonts/font.woff2") format("woff2"),
-         url("./fonts/font.woff") format("woff");
-    font-display: swap;
-    font-style: normal;
-    font-stretch: 100%;
-  }
 
   :root {
     --bg-primary: #f5f3ee;
@@ -34,7 +25,7 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
   body {
-    font-family: "AlimamaShuHeiTi", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: inherit;
     font-weight: 400; font-synthesis: none; -webkit-text-size-adjust: 100%;
     color: var(--text-primary); background: var(--bg-primary);
     line-height: 1.5; letter-spacing: -0.01em; overflow-x: hidden;
@@ -59,7 +50,7 @@
   .nav-pill-right {
     position: fixed; top: 34px; right: 67px; z-index: 1100;
     display: flex; align-items: center; justify-content: center;
-    width: 64px; height: 56px;
+    width: 56px; height: 56px;
     background: rgba(255, 253, 250, 0.95); border: none; border-radius: 16px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     opacity: 1; pointer-events: auto; transform: none;
@@ -74,14 +65,14 @@
   .nav-pill-right.menu-open:hover .pill-menu-btn span { background: #000; }
   .nav-pill-right.menu-open {
     top: 18px !important; right: 24px !important; transform: none !important;
-    width: 64px !important; height: 56px !important; border-radius: 16px !important;
+    width: 56px !important; height: 56px !important; border-radius: 16px !important;
     background: transparent !important; box-shadow: none !important;
     backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
   }
   .nav-pill-right.menu-open .pill-menu-btn span:nth-child(1) { transform: translateY(8px) rotate(45deg); background: #2a1f3d; }
   .nav-pill-right.menu-open .pill-menu-btn span:nth-child(2) { opacity: 0; transform: scaleX(0); width: 0; }
-  .nav-pill-right.menu-open .pill-menu-btn span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); background: #2a1f3d; width: 34px; }
-  .nav-pill-right.menu-open .pill-menu-btn { align-items: center; padding-right: 0; }
+  .nav-pill-right.menu-open .pill-menu-btn span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); background: #2a1f3d; width: 28px; }
+  .nav-pill-right.menu-open .pill-menu-btn { align-items: center; padding-left: 0; }
   .nav-pill-left.menu-open {
     top: 18px !important; left: 24px !important; transform: none !important;
     width: 156px !important; height: 56px !important; border-radius: 16px !important;
@@ -96,17 +87,17 @@
   .pill-logo img { height: 34px; width: auto; display: block; filter: brightness(0) opacity(0.82); margin-left: 26px; }
   .pill-menu-btn {
     display: flex; flex-direction: column; gap: 6px;
-    align-items: flex-end; justify-content: center;
+    align-items: flex-start; justify-content: center;
     width: 100%; height: 100%;
-    cursor: pointer; background: none; border: none; padding: 0 14px 0 0;
+    cursor: pointer; background: none; border: none; padding: 0 0 0 15px;
   }
   .pill-menu-btn span {
-    display: block; width: 34px; height: 2px; background: #2a1f3d; border-radius: 2px;
+    display: block; width: 28px; height: 2px; background: #2a1f3d; border-radius: 2px;
     transform-origin: center;
     transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.25s ease, width 0.3s ease;
   }
   .pill-menu-btn span:nth-child(3) {
-    width: 23px;
+    width: 19px;
   }
 
   /* ── 全屏菜单 ── */
@@ -134,7 +125,7 @@
   }
   .fsm-link {
     display: flex; align-items: center; justify-content: space-between;
-    font-family: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    font-family: inherit;
     font-size: clamp(24px, 3.5vw, 36px); font-weight: 400;
     color: #888884; text-decoration: none; line-height: 1.2; padding: 28px 0;
     letter-spacing: 0.01em;
@@ -157,47 +148,47 @@
   /* ── BCG 式响应断点：浮块随屏幕缩放 ── */
   @media (max-width: 1200px) {
     .nav-pill-left { left: 32px; top: 36px; width: 138px; height: 52px; border-radius: 14px; }
-    .nav-pill-right { right: 32px; top: 36px; width: 60px; height: 52px; border-radius: 14px; }
+    .nav-pill-right { right: 32px; top: 36px; width: 52px; height: 52px; border-radius: 14px; }
     .nav-pill-left.menu-open { left: 16px !important; top: 16px !important; width: 138px !important; height: 52px !important; border-radius: 14px !important; }
-    .nav-pill-right.menu-open { right: 16px !important; top: 16px !important; width: 60px !important; height: 52px !important; border-radius: 14px !important; }
+    .nav-pill-right.menu-open { right: 16px !important; top: 16px !important; width: 52px !important; height: 52px !important; border-radius: 14px !important; }
     .pill-logo img { height: 30px; margin-left: 24px; }
-    .pill-menu-btn span { width: 32px; }
-    .pill-menu-btn span:nth-child(3) { width: 21px; }
+    .pill-menu-btn span { width: 26px; }
+    .pill-menu-btn span:nth-child(3) { width: 17px; }
   }
   @media (max-width: 900px) {
     .nav-pill-left { left: 29px; top: 12px; width: 125px; height: 48px; border-radius: 13px; }
-    .nav-pill-right { right: 29px; top: 12px; width: 56px; height: 48px; border-radius: 13px; }
+    .nav-pill-right { right: 29px; top: 12px; width: 48px; height: 48px; border-radius: 13px; }
     .nav-pill-left.menu-open { left: 12px !important; top: 8px !important; width: 125px !important; height: 48px !important; border-radius: 13px !important; }
-    .nav-pill-right.menu-open { right: 12px !important; top: 8px !important; width: 56px !important; height: 48px !important; border-radius: 13px !important; }
+    .nav-pill-right.menu-open { right: 12px !important; top: 8px !important; width: 48px !important; height: 48px !important; border-radius: 13px !important; }
     .pill-logo img { height: 28px; margin-left: 22px; }
-    .pill-menu-btn span { width: 30px; }
-    .pill-menu-btn span:nth-child(3) { width: 20px; }
+    .pill-menu-btn span { width: 24px; }
+    .pill-menu-btn span:nth-child(3) { width: 16px; }
     .fsm-nav { padding: 100px 36px 0; }
   }
 
   @media (max-width: 640px) {
     .nav-pill-left  { left: 16px; top: 16px; width: 118px; height: 44px; border-radius: 12px; padding: 0; }
-    .nav-pill-right { right: 16px; top: 16px; width: 50px; height: 44px; border-radius: 12px; }
+    .nav-pill-right { right: 16px; top: 16px; width: 44px; height: 44px; border-radius: 12px; }
     .nav-pill-left.menu-open { width: 118px !important; height: 44px !important; left: 8px !important; top: 8px !important; }
-    .nav-pill-right.menu-open { width: 50px !important; height: 44px !important; right: 8px !important; top: 8px !important; }
+    .nav-pill-right.menu-open { width: 44px !important; height: 44px !important; right: 8px !important; top: 8px !important; }
     .pill-logo img { height: 26px; margin-left: 17px; padding-left: 0; }
-    .pill-menu-btn { gap: 5px; padding-right: 11px; }
-    .pill-menu-btn span { width: 27px; height: 2px; }
-    .pill-menu-btn span:nth-child(3) { width: 18px; }
-    .nav-pill-right.menu-open .pill-menu-btn { align-items: center; padding-right: 0; }
+    .pill-menu-btn { gap: 5px; padding-left: 12px; }
+    .pill-menu-btn span { width: 22px; height: 2px; }
+    .pill-menu-btn span:nth-child(3) { width: 15px; }
+    .nav-pill-right.menu-open .pill-menu-btn { align-items: center; padding-left: 0; }
     .nav-pill-right.menu-open .pill-menu-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-pill-right.menu-open .pill-menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); width: 27px; }
+    .nav-pill-right.menu-open .pill-menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); width: 22px; }
     .fsm-nav { padding: 90px 28px 0; justify-content: flex-start; }
     .fsm-link {
       font-size: 24px; font-weight: 400; padding: 22px 0; color: var(--text-secondary);
-      font-family: "AlimamaShuHeiTi", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-family: inherit;
     }
     .fsm-link-arrow { display: none; }
   }
 
   /* ── Hero ── */
   .join-hero {
-    padding: 180px 32px 100px; text-align: center;
+    padding: 180px 32px 24px; text-align: center;
     background: radial-gradient(ellipse at 50% 0%, rgba(107, 44, 201, 0.08) 0%, transparent 60%), var(--bg-primary);
   }
   .join-hero-title {
@@ -211,7 +202,8 @@
   }
 
   /* ── Section base ── */
-  section { padding: 120px 32px; position: relative; }
+  section { padding: 80px 32px; position: relative; }
+  .mission-section { padding-top: 48px; }
   .section-inner { max-width: 800px; margin: 0 auto; }
   .section-inner--wide { max-width: 1080px; margin: 0 auto; }
 
@@ -230,7 +222,7 @@
   }
 
   /* ── Mission prose ── */
-  .mission-section { border-bottom: 1px solid var(--border-subtle); }
+  .mission-section { }
   .mission-eyebrow {
     display: inline-block; font-size: 12px; font-weight: 500;
     color: var(--accent-purple-light); letter-spacing: 0.15em; text-transform: uppercase;
@@ -240,7 +232,7 @@
   }
   .mission-title {
     font-size: clamp(28px, 4vw, 44px); font-weight: 700;
-    letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 32px;
+    letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 24px;
     color: var(--text-primary);
   }
   .mission-body {
@@ -249,12 +241,14 @@
   }
 
   /* ── Principles list ── */
-  .principles-section { background: var(--bg-primary); }
+  .principles-section { background: var(--bg-primary); border-top: 1px solid var(--border-subtle); padding-top: 48px; }
+  .principles-section .mission-title { margin-bottom: 48px; }
   .principles-list { display: flex; flex-direction: column; gap: 0; }
   .principle-item {
     padding: 48px 0; border-bottom: 1px solid var(--border-subtle);
   }
-  .principle-item:first-child { border-top: 1px solid var(--border-subtle); }
+  .principle-item:first-child { border-top: none; padding-top: 0; }
+  .principle-item:last-child { border-bottom: none; }
   .principle-item-title {
     font-size: clamp(20px, 2.5vw, 26px); font-weight: 700;
     letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 14px;
@@ -294,7 +288,7 @@
 
   /* ── CTA ── */
   .join-cta {
-    text-align: center; padding: 120px 32px;
+    text-align: center; padding: 80px 32px;
     background: radial-gradient(ellipse at 50% 100%, rgba(107, 44, 201, 0.06) 0%, transparent 60%), var(--bg-primary);
   }
   .join-cta-title {
@@ -345,8 +339,8 @@
 
   /* ── Mobile ── */
   @media (max-width: 640px) {
-    section { padding: 80px 20px; }
-    .join-hero { padding: 130px 20px 70px; }
+    section { padding: 64px 20px; }
+    .join-hero { padding: 130px 20px 20px; }
     .quote-block { padding: 56px 20px; }
     .values-grid { grid-template-columns: 1fr; }
     .principle-item { padding: 32px 0; }
@@ -436,7 +430,7 @@
 <!-- 价值观 -->
 <section class="values-section">
   <div class="section-inner--wide">
-    <div style="text-align: center; margin-bottom: 80px;">
+    <div style="text-align: center; margin-bottom: 48px;">
       <div class="mission-eyebrow reveal">我们的价值观</div>
       <h2 class="mission-title reveal" style="text-align: center;">做事的标准，也是选人的标准。</h2>
     </div>
