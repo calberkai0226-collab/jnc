@@ -154,7 +154,7 @@
     position: relative;
     min-height: 100vh;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    padding: 140px 32px 100px;
+    padding: 140px 32px 40px;
     text-align: center;
     overflow: hidden;
     isolation: isolate;
@@ -356,7 +356,7 @@
 
   /* ========== 理念板块（滑动） ========== */
   .principles {
-    padding: 140px 32px 120px;
+    padding: 48px 32px 120px;
     overflow: hidden;
     background: var(--bg-primary);
   }
@@ -376,10 +376,10 @@
   }
   .principles-viewport:active { cursor: grabbing; }
 
-  /* 内层轨道：4 张卡片横向排列 */
+  /* 内层轨道：3 张卡片横向排列 */
   .principles-track {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     padding: 0 32px;
     transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
@@ -442,7 +442,7 @@
     z-index: 1;
   }
 
-  /* ========== 进度条（4 段颠跌式，Apple iPhone 同款） ========== */
+  /* ========== 进度条（3 段颠跌式，Apple iPhone 同款） ========== */
   .principles-progress {
     display: flex;
     gap: 8px;
@@ -480,7 +480,7 @@
     to   { transform: scaleX(1); }
   }
 
-  /* 宽屏：进度条不显示（4 张都静止展示，没必要） */
+  /* 宽屏：进度条不显示（3 张都静止展示，没必要） */
   @media (min-width: 1025px) {
     .principles-progress { display: none; }
   }
@@ -491,7 +491,7 @@
       overflow: visible;
     }
     .principles-track {
-      grid-template-columns: repeat(4, 85%);
+      grid-template-columns: repeat(3, 85%);
       gap: 16px;
       padding: 0 32px;
     }
@@ -503,9 +503,9 @@
   }
 
   @media (max-width: 640px) {
-    .principles { padding: 100px 0 80px; }
+    .principles { padding: 48px 0 80px; }
     .principles-track {
-      grid-template-columns: repeat(4, 88%);
+      grid-template-columns: repeat(3, 88%);
       gap: 12px;
       padding: 0 20px;
     }
@@ -705,41 +705,35 @@
   <h1 class="hero-title">读懂你的业务，<br/>再让它全自动运转。</h1>
 </section>
 
-<!-- ========== 理念板块（宽屏静止 4 张，窄屏滑动 + 进度条） ========== -->
+<!-- ========== 理念板块（宽屏静止 3 张，窄屏滑动 + 进度条） ========== -->
 <section class="principles">
   <div class="principles-header reveal">
     <div class="section-eyebrow">我们的理念</div>
-    <h2 class="section-title">四件事，<br/>我们和别人不一样。</h2>
+    <h2 class="section-title">三件事<br/>我们和别人不一样。</h2>
   </div>
 
   <div class="principles-viewport" id="principlesViewport">
     <div class="principles-track" id="principlesTrack">
       <div class="principle-card" data-index="0">
         <div class="principle-num">01</div>
-        <div class="principle-title">不做咨询,<br/>直接下场</div>
-        <div class="principle-desc">不写厚报告,我们和你的团队一起把 AI 跑起来。</div>
+        <div class="principle-title">一周上线</div>
+        <div class="principle-desc">不做概念验证，而是直接上线最小可行性产品。我们深知时间与真实数据的核心价值，最快一周内上线、通过闭环结果完成业务验证。</div>
       </div>
       <div class="principle-card" data-index="1">
         <div class="principle-num">02</div>
-        <div class="principle-title">从小事开始</div>
-        <div class="principle-desc">先解决一个最痛的环节,再扩展到下一个。</div>
+        <div class="principle-title">利润出发</div>
+        <div class="principle-desc">我们不做PPT式空谈，而是聚焦可落地的业务逻辑。从增量收入与净成本节约出发，反向推导最优落地方案。</div>
       </div>
       <div class="principle-card" data-index="2">
         <div class="principle-num">03</div>
-        <div class="principle-title">长期陪跑</div>
-        <div class="principle-desc">上线是起点不是终点,持续优化到业务真的变好。</div>
-      </div>
-      <div class="principle-card" data-index="3">
-        <div class="principle-num">04</div>
-        <div class="principle-title">拒绝绑架</div>
-        <div class="principle-desc">用开放方案,不把你锁死在某家供应商身上。</div>
+        <div class="principle-title">共建产品</div>
+        <div class="principle-desc">我们不做一次性项目，而是构建可规模化复用的产品。将人类专业判断力与前沿AI技术深度融合，为客户重构真正的AI原生业务流。</div>
       </div>
     </div>
   </div>
 
   <!-- 进度条:只在窄屏显示(CSS 控制) -->
   <div class="principles-progress" id="principlesProgress">
-    <div class="progress-segment"></div>
     <div class="progress-segment"></div>
     <div class="progress-segment"></div>
     <div class="progress-segment"></div>
